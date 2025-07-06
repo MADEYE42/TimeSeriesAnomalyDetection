@@ -10,7 +10,7 @@ This project extracts **1 frame per second** from activity videos (e.g., Walking
 #### 📁 Folder Structure
 
 ```
-/annotated_frames/
+/Activities/
 ├── Falling/
 │   ├── fall1.mp4
 │   ├── fall2.mp4
