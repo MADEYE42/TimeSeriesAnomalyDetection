@@ -78,14 +78,9 @@ Each image contains the label rendered in red text on the top-left corner.
 * Jumping
 * Lying
 * Running
-* Shaking
 * Sitting
 * Standing
-* Turning In Place
 * Walking
-* Walking Downstairs
-* Walking Upstairs
-
 ---
 
 #### 🧾 Code Snippet
