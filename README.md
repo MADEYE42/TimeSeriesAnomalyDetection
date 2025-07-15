@@ -43,7 +43,7 @@ This project performs real-time human activity recognition from webcam video usi
 
 ### ✅ 1. Clone the Repository
 ```bash
-git clone https://github.com/MADEYE42/activity-detection-project.git
+git clone https://github.com/MADEYE42/TimeSeriesAnomalyDetection.git
 ````
 
 ### ✅ 2. Install Dependencies
@@ -69,7 +69,7 @@ python activity_detection.py
 To train your own model using extracted and labeled frames:
 
 ```bash
-python training_script.py
+run CNN.ipynb
 ```
 
 * Uses transfer learning with `EfficientNetB0` (default) or `MobileNetV2`
@@ -87,28 +87,3 @@ python training_script.py
 [2025-07-06 20:08:52] 🧠 Detected: Falling (91.5%)
 ✅ Webcam closed. Session ended.
 ```
-
----
-
-## 🛡️ Future Improvements
-
-* Add alert for dangerous activities like Falling
-* Upload detection logs to cloud or dashboard
-* Convert to mobile app using TensorFlow Lite
-* Add tracking and sequence analysis (LSTM/CNN-LSTM)
-
----
-
-## 📜 License
-
-This project is licensed under the MIT License.
-
----
-
-## 👨‍💻 Author
-
-**Gouresh Madye**
-📧 [goureshmadye@example.com](mailto:goureshmadye@example.com)
-📌 [LinkedIn](https://www.linkedin.com/in/yourprofile) | [GitHub](https://github.com/your-username)
-
-
