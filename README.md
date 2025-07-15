@@ -8,7 +8,7 @@ This project performs real-time human activity recognition from webcam video usi
 
 ```
 
-📁 activity-detection-project/
+📁/
 │
 ├── X.npy                  # Preprocessed image data (shape: N x 224 x 224 x 3)
 ├── y.npy                  # Corresponding activity labels
@@ -44,7 +44,6 @@ This project performs real-time human activity recognition from webcam video usi
 ### ✅ 1. Clone the Repository
 ```bash
 git clone https://github.com/MADEYE42/activity-detection-project.git
-cd activity-detection-project
 ````
 
 ### ✅ 2. Install Dependencies
