@@ -12,11 +12,12 @@ This project performs real-time human activity recognition from webcam video usi
 │
 ├── X.npy                  # Preprocessed image data (shape: N x 224 x 224 x 3)
 ├── y.npy                  # Corresponding activity labels
-├── EfficientNetB0\_best\_model.h5   # Trained Keras model (EfficientNetB0)
-├── activity\_detection.py  # Real-time webcam inference script
+├── EfficientNetB0_best_model.h5   # Trained Keras model (EfficientNetB0)
+├── activity_detection.py  # Real-time webcam inference script
 ├── training\_script.py     # Model training script (EfficientNet / MobileNetV2)
-├── activity\_model.tflite  # Exported TensorFlow Lite model (for mobile/edge)
-├── activity\_model.onnx    # Exported ONNX model (for ONNX runtime)
+├── VideoToFrames.ipynb  # Exported Frames from videos
+├── requirements.txt  # Libraries
+├── preprocess_frame.ipynb  # To preprocess frames and make all of them in same size
 └── README.md
 
 ````
