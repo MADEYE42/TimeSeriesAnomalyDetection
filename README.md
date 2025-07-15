@@ -43,7 +43,7 @@ This project performs real-time human activity recognition from webcam video usi
 
 ### ✅ 1. Clone the Repository
 ```bash
-git clone https://github.com/your-username/activity-detection-project.git
+git clone https://github.com/MADEYE42/activity-detection-project.git
 cd activity-detection-project
 ````
 
