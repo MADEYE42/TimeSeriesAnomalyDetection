@@ -1,93 +1,115 @@
+# 🧠 Real-Time Human Activity Detection Using EfficientNet
+
+This project performs real-time human activity recognition from webcam video using a fine-tuned deep learning model (EfficientNetB0 or MobileNetV2). Activities are classified frame-by-frame with predictions shown on-screen and logged in the terminal with timestamps.
 
 ---
 
-### 📄 Annotated Frame Extraction Process
-
-This project extracts **1 frame per second** from activity videos (e.g., Walking, Running, Falling) and saves each frame with the activity name annotated both **on the image** and in the **file name**, organized in folders for each activity.
-
----
-
-#### 📁 Folder Structure
+## 📂 Project Structure
 
 ```
-/Activities/
-├── Falling/
-│   ├── fall1.mp4
-│   ├── fall2.mp4
-│   └── ...
-├── Walking/
-│   ├── walk1.mp4
-│   └── ...
-├── Running/
-│   └── run1.mp4
-...
-```
+
+📁 activity-detection-project/
+│
+├── X.npy                  # Preprocessed image data (shape: N x 224 x 224 x 3)
+├── y.npy                  # Corresponding activity labels
+├── EfficientNetB0\_best\_model.h5   # Trained Keras model (EfficientNetB0)
+├── activity\_detection.py  # Real-time webcam inference script
+├── training\_script.py     # Model training script (EfficientNet / MobileNetV2)
+├── activity\_model.tflite  # Exported TensorFlow Lite model (for mobile/edge)
+├── activity\_model.onnx    # Exported ONNX model (for ONNX runtime)
+└── README.md
+
+````
 
 ---
 
-#### ⚙️ Requirements
+## 📸 Activities Covered
 
-Install dependencies using:
+- Falling  
+- Jumping  
+- Lying  
+- Running  
+- Shaking  
+- Sitting  
+- Standing  
+- Turning In Place  
+- Walking  
+- Walking Downstairs  
+- Walking Upstairs  
+
+---
+
+## 🚀 Getting Started
+
+### ✅ 1. Clone the Repository
+```bash
+git clone https://github.com/your-username/activity-detection-project.git
+cd activity-detection-project
+````
+
+### ✅ 2. Install Dependencies
 
 ```bash
-pip install -r requirements.txt
+pip install tensorflow opencv-python numpy
 ```
 
-**requirements.txt**
+> Make sure you’re using **Python 3.10** for TensorFlow compatibility.
 
-```txt
-opencv-python
+### ✅ 3. Run Real-Time Detection
+
+```bash
+python activity_detection.py
 ```
+
+> This will open your webcam, display detected activity labels on screen, and log them in the terminal.
 
 ---
 
-#### ▶️ How It Works
+## 🏋️‍♂️ Model Training
 
-* Reads each video from every activity folder.
-* Extracts frames at **1-second intervals** using OpenCV.
-* Annotates each frame with the **activity label** (e.g., `WALKING`) on the image.
-* Saves each annotated frame as a `.jpg` inside:
+To train your own model using extracted and labeled frames:
 
-  ```
-  /annotated_frames/<ActivityName>/<activity_name>_<video_name>_<timestamp>.jpg
-  ```
-
----
-
-#### 📂 Output Example
-
-```
-/annotated_frames/
-├── Falling/
-│   ├── falling_fall1_0001.jpg
-│   ├── falling_fall1_0002.jpg
-│   └── ...
-├── Walking/
-│   ├── walking_walk1_0001.jpg
-│   └── ...
-...
+```bash
+python training_script.py
 ```
 
-Each image contains the label rendered in red text on the top-left corner.
+* Uses transfer learning with `EfficientNetB0` (default) or `MobileNetV2`
+* Automatically splits data into train/validation
+* Outputs best model as `EfficientNetB0_best_model.h5`
 
 ---
 
-#### 🧠 Activities Supported
+## 🧠 Example Terminal Output
 
-* Falling
-* Jumping
-* Lying
-* Running
-* Sitting
-* Standing
-* Walking
----
-
-#### 🧾 Code Snippet
-
-```python
-cv2.putText(annotated_frame, activity.upper(), (10, 30),
-            cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
+```
+📹 Webcam started. Press 'q' to quit.
+[2025-07-06 20:08:43] 🧠 Detected: Walking (94.2%)
+[2025-07-06 20:08:48] 🧠 Detected: Running (96.8%)
+[2025-07-06 20:08:52] 🧠 Detected: Falling (91.5%)
+✅ Webcam closed. Session ended.
 ```
 
 ---
+
+## 🛡️ Future Improvements
+
+* Add alert for dangerous activities like Falling
+* Upload detection logs to cloud or dashboard
+* Convert to mobile app using TensorFlow Lite
+* Add tracking and sequence analysis (LSTM/CNN-LSTM)
+
+---
+
+## 📜 License
+
+This project is licensed under the MIT License.
+
+---
+
+## 👨‍💻 Author
+
+**Gouresh Madye**
+📧 [goureshmadye@example.com](mailto:goureshmadye@example.com)
+📌 [LinkedIn](https://www.linkedin.com/in/yourprofile) | [GitHub](https://github.com/your-username)
+
+
