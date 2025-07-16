@@ -1,6 +1,19 @@
-opencv-python
+# Core
 numpy
-scikit-learn
-tqdm
-tensorflow
+pandas
 matplotlib
+tqdm
+scikit-learn
+
+# OpenCV for video processing
+opencv-python
+
+# Deep Learning (TensorFlow)
+tensorflow>=2.11.0
+
+# Optional: For I3D pretrained model and video classification tools
+keras-video-classifier
+keras-video-generators
+
+# Jupyter notebook (if needed)
+notebook

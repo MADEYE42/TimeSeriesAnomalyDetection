@@ -1,0 +1,11 @@
+{
+    "Falling": 0,
+    "Jumping": 1,
+    "Lying": 2,
+    "Running": 3,
+    "Sitting": 4,
+    "Standing": 5,
+    "Walking": 6,
+    "Walking Downstairs": 7,
+    "Walking Upstairs": 8
+}
