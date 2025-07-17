@@ -1,0 +1,8 @@
+names:
+- fall
+- normal
+nc: 2
+path: C:\Users\Madye\Desktop\TimeSeriesAnomalyDetection\Yolo\dataset
+test: test
+train: train
+val: val
