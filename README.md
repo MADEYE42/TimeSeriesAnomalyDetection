@@ -1,7 +1,3 @@
-Here is a well-structured and formal **README.md** based on your comprehensive document:
-
----
-
 # 🧠 Real-Time Human Activity Recognition (HAR)
 
 A comprehensive deep learning-based system for real-time **Human Activity Recognition** (HAR) using image classification, video analysis, object detection, and spatiotemporal models.
