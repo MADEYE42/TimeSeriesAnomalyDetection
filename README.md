@@ -1,5 +1,3 @@
-Here is a well-structured and formal **README.md** based on your comprehensive document:
-
 ---
 
 # 🧠 Real-Time Human Activity Recognition (HAR)
