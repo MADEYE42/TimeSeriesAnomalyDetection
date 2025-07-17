@@ -1,90 +1,126 @@
-# 🧠 Real-Time Human Activity Detection Using EfficientNet
-
-This project performs real-time human activity recognition from webcam video using a fine-tuned deep learning model (EfficientNetB0 or MobileNetV2). Activities are classified frame-by-frame with predictions shown on-screen and logged in the terminal with timestamps.
+Here is a well-structured and formal **README.md** based on your comprehensive document:
 
 ---
 
-## 📂 Project Structure
+# 🧠 Real-Time Human Activity Recognition (HAR)
 
-```
-
-📁/
-│
-├── X.npy                  # Preprocessed image data (shape: N x 224 x 224 x 3)
-├── y.npy                  # Corresponding activity labels
-├── EfficientNetB0_best_model.h5   # Trained Keras model (EfficientNetB0)
-├── activity_detection.py  # Real-time webcam inference script
-├── CNN.ipynb     # Model training script (EfficientNet / MobileNetV2)
-├── VideoToFrames.ipynb  # Exported Frames from videos
-├── requirements.txt  # Libraries
-├── preprocess_frame.ipynb  # To preprocess frames and make all of them in same size
-└── README.md
-
-````
+A comprehensive deep learning-based system for real-time **Human Activity Recognition** (HAR) using image classification, video analysis, object detection, and spatiotemporal models.
 
 ---
 
-## 📸 Activities Covered
+## 📁 Project Overview
 
-- Falling  
-- Jumping  
-- Lying  
-- Running  
-- Shaking  
-- Sitting  
-- Standing  
-- Turning In Place  
-- Walking  
-- Walking Downstairs  
-- Walking Upstairs  
+This project explores four distinct approaches to HAR, combining classical CNNs, temporal sequence models, and YOLOv8-based pipelines. The system is capable of real-time activity recognition from webcam feeds and supports deployment-ready architectures for smart monitoring, safety, and surveillance applications.
+
+---
+
+## ✅ Approaches
+
+### **🔹 Approach 1: Video-to-Image Frame Based Pipeline**
+
+* Extracted frames from activity videos (e.g., walking, sitting, falling) at 1 FPS.
+* Applied CNN-based transfer learning models (EfficientNetB0, MobileNetV2, ResNet50).
+* Trained with one-hot encoded labels and image inputs.
+* Real-time deployment using OpenCV with confidence thresholds and logging.
+
+### **🔹 Approach 2: Image-Only HAR with CSV Label Mapping**
+
+* Used `Training_set.csv` and `Testing_set.csv` for mapping image filenames to labels.
+* Trained various models (EfficientNetB0, MobileNetV2, VGG16, custom CNNs).
+* Webcam integration with `.h5`/`.keras` models for real-time inference.
+* Supported bounding box overlays, alert generation, and modular deployment.
+
+### **🔹 Approach 3: Spatiotemporal HAR Using 3D CNN, CNN+LSTM, and I3D**
+
+* Segmented videos into 16/64-frame clips to capture temporal motion patterns.
+* Trained three architectures:
+
+  * **3D CNN**
+  * **CNN + LSTM**
+  * **I3D (Inflated 3D ConvNet)**
+* Performed clip-wise prediction with ensemble support for higher robustness.
+
+### **🔹 Approach 4: YOLOv8-Based HAR with Object Detection Integration**
+
+* Used Ultralytics YOLOv8 (`yolov8n-cls.pt`) for activity classification.
+* Extracted frames from fall/normal videos into `train/`, `val/`, and `test/` subfolders.
+* Used `yolov8n.pt` for detecting human presence to improve prediction reliability.
+* Implemented real-time webcam inference with bounding boxes and fall detection alerts.
+
+---
+
+## 🧪 Features
+
+* ✅ Real-time activity detection using webcam input.
+* 🧠 Multi-model architecture supporting both 2D and 3D convolutional approaches.
+* 📦 Dataset frame extraction, labeling, and augmentation support.
+* 📈 Evaluation with confusion matrix, precision, recall, F1-score.
+* 📊 Live prediction visualization and object tracking.
+* 🔔 Extensible alert/notification system for fall detection use-cases.
 
 ---
 
 ## 🚀 Getting Started
 
-### ✅ 1. Clone the Repository
-```bash
-git clone https://github.com/MADEYE42/TimeSeriesAnomalyDetection.git
-````
+### 📦 Installation
 
-### ✅ 2. Install Dependencies
+Install all dependencies via:
 
 ```bash
-pip install tensorflow opencv-python numpy
+pip install -r requirements.txt
 ```
 
-> Make sure you’re using **Python 3.10** for TensorFlow compatibility.
+### 📁 Dataset Structure (for Approach 4)
 
-### ✅ 3. Run Real-Time Detection
-
-```bash
-python activity_detection.py
 ```
-
-> This will open your webcam, display detected activity labels on screen, and log them in the terminal.
+dataset/
+├── train/
+│   ├── Fall/
+│   └── Normal/
+├── val/
+│   ├── Fall/
+│   └── Normal/
+└── test/
+    ├── Fall/
+    └── Normal/
+```
 
 ---
 
-## 🏋️‍♂️ Model Training
+## 🎯 Usage
 
-To train your own model using extracted and labeled frames:
-
-```bash
-run CNN.ipynb
-```
-
-* Uses transfer learning with `EfficientNetB0` (default) or `MobileNetV2`
-* Automatically splits data into train/validation
-* Outputs best model as `EfficientNetB0_best_model.h5`
+1. Train models via respective notebooks/scripts per approach.
+2. Ensure webcam access is available for real-time predictions.
+3. Run the live inference script to visualize and test predictions.
 
 ---
 
-## 🧠 Example Terminal Output
+## 📊 Evaluation Metrics
 
-```
-📹 Webcam started. Press 'q' to quit.
-[2025-07-06 20:08:43] 🧠 Detected: Walking (94.2%)
-[2025-07-06 20:08:48] 🧠 Detected: Running (96.8%)
-[2025-07-06 20:08:52] 🧠 Detected: Falling (91.5%)
-✅ Webcam closed. Session ended.
-```
+* **Accuracy**
+* **Precision / Recall**
+* **F1 Score**
+* **Confusion Matrix**
+* **Classification Report**
+
+---
+
+## 🛠️ Technologies Used
+
+* Python, OpenCV, TensorFlow/Keras, PyTorch
+* Ultralytics YOLOv8
+* Scikit-learn, NumPy, Matplotlib
+* EfficientNet, MobileNetV2, VGG16, ResNet50
+* I3D, 3D CNN, LSTM (Keras)
+
+---
+
+## 🔧 Future Work
+
+* 🚨 Add multi-class fall detection (slow, backward, sideways)
+* 🧊 Deploy on edge devices (Jetson, Raspberry Pi)
+* ☁️ Integrate alert system (email/SMS/IoT)
+* 🧪 Ensemble prediction logic for robust multi-model performance
+
+---
+
