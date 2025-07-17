@@ -1,5 +1,3 @@
----
-
 # 🧠 Real-Time Human Activity Recognition (HAR)
 
 A comprehensive deep learning-based system for real-time **Human Activity Recognition** (HAR) using image classification, video analysis, object detection, and spatiotemporal models.
